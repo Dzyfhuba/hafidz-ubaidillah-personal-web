@@ -20,6 +20,7 @@ const IndexPage: React.FC<PageProps> = () => {
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   }
+  
   React.useEffect(() => {
     getData()
   }, [])
