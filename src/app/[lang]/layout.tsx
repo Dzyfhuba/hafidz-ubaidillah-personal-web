@@ -6,6 +6,8 @@ import Link from 'next/link'
 import LogoWhite from '@/images/logo-long-bg-white.png'
 import { MdClose, MdMenu } from 'react-icons/md'
 import { BiMenuAltLeft } from 'react-icons/bi'
+import { Locale, i18n } from '@/i18n-config'
+import { getDictionary } from '@/get-dictionary'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,20 +15,23 @@ export const metadata: Metadata = {
   title: 'Dzyfhuba Dev',
   description: `Hafidz Ubaidillah is a highly skilled full-stack web developer, 
   specializing in Laravel and Node.js for the back end, and React.js and Flutter for the front end.`,
-  icons: {
-    icon: [
-      '/public/icon.svg'
-    ]
-  }
 }
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }))
+}
+
+
+export default async function RootLayout({
   children,
+  params
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  params: {lang: Locale}
 }) {
+  const dictionary = await getDictionary(params.lang)
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body className={inter.className}>
         <nav className='bg-orange-600 flex items-center px-2 justify-between'>
           <div className="drawer w-min">
@@ -44,9 +49,16 @@ export default function RootLayout({
                     <MdClose size={24} />
                   </label>
                 {/* Sidebar content here */}
-                <li><a>Sidebar Item 1</a></li>
-                <li><a>Sidebar Item 2</a></li>
-
+                <li>
+                  <Link href={'/'}>
+                    {dictionary.home}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'/'}>
+                    {dictionary.projects}
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

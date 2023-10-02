@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.4.2",
+    "negotiator": "^0.6.3",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.11.0"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.1",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
