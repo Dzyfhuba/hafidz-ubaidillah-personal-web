@@ -7,7 +7,7 @@
    viewBox="0 0 1440 297.88901"
    version="1.1"
    id="SVGRoot"
-   sodipodi:docname="logo-long.svg"
+   sodipodi:docname="logo-long-white.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    inkscape:export-filename="/home/ubaid/Documents/logo-long-bg-white.png"
    inkscape:export-xdpi="464.06546"
@@ -27,7 +27,7 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="0.29016746"
-     inkscape:cx="647.90173"
+     inkscape:cx="620.33145"
      inkscape:cy="70.648859"
      inkscape:window-width="1366"
      inkscape:window-height="743"
@@ -70,9 +70,9 @@
          transform="matrix(1.5735365,0,0,1.5735365,-13.098463,-19.666135)"><tspan
            x="4.8671875"
            y="39.294922"
-           id="tspan114"><tspan
+           id="tspan30"><tspan
              style="font-family:'Courier Prime';-inkscape-font-specification:'Courier Prime'"
-             id="tspan112">{     }</tspan></tspan></text>
+             id="tspan28">{     }</tspan></tspan></text>
       <text
          xml:space="preserve"
          id="text6565"
@@ -80,9 +80,9 @@
          transform="matrix(1.3255455,0,0,1.3255455,20.762206,-15.369764)"><tspan
            x="7.3476562"
            y="40.214816"
-           id="tspan118"><tspan
+           id="tspan34"><tspan
              style="font-family:Chewy;-inkscape-font-specification:Chewy"
-             id="tspan116">Dzyfhuba</tspan></tspan></text>
+             id="tspan32">Dzyfhuba</tspan></tspan></text>
     </g>
   </g>
 </svg>

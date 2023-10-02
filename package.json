@@ -11,12 +11,14 @@
   "dependencies": {
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-icons": "^4.11.0"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-icons": "^3.0.0",
     "autoprefixer": "latest",
     "daisyui": "^3.8.2",
     "eslint": "latest",
