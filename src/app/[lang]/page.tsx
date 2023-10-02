@@ -1,4 +1,4 @@
-import { Locale } from '@/i18-config'
+import { Locale } from '@/i18n-config'
 import Image from 'next/image'
 
 export default function Home({

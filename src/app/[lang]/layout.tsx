@@ -59,6 +59,16 @@ export default async function RootLayout({
                     {dictionary.projects}
                   </Link>
                 </li>
+                <li className='flex-row'>
+                  <label htmlFor="language" className='inline'>{dictionary.language}: </label>
+                  <select name="language" id="language" defaultValue={params.lang} className='capitalize flex-grow'>
+                    {
+                      i18n.locales.map((locale, idx) => (
+                        <option value={locale} key={idx}>{i18n.longLocales[idx]}</option>
+                      ))
+                    }
+                  </select>
+                </li>
               </ul>
             </div>
           </div>
