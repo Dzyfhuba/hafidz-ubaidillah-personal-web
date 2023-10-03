@@ -8,6 +8,7 @@ declare global {
       NEXT_PUBLIC_APP_NAME: string;
 
       SUPABASE_PROJECT_REF: string;
+      SUPABASE_URL: string;
       SUPABASE_SERVICE_KEY: string;
     }
   }
