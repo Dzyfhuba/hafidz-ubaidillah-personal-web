@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-import { i18n } from './i18n-config'
+import { Locale, i18n } from './i18n-config'
 
 import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
+import { cookies } from 'next/headers'
 
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
@@ -19,7 +20,14 @@ function getLocale(request: NextRequest): string | undefined {
     locales
   )
 
-  const locale = matchLocale(languages, locales, i18n.defaultLocale)
+  const cookiesLocale = cookies().get('NEXT_LOCALE')?.value as unknown as Locale
+  console.log({ cookiesLocale })
+
+  let locale = matchLocale(languages, locales, cookiesLocale || i18n.defaultLocale)
+
+  // // get locale from cookies if exists
+  if (cookies().has('NEXT_LOCALE'))
+    locale = matchLocale(languages, locales, cookies().get('NEXT_LOCALE')?.value as unknown as Locale)
 
   return locale
 }

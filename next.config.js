@@ -8,7 +8,10 @@ const nextConfig = {
   // ],
   
   compiler: {
-    removeConsole: true
+    removeConsole: process.env.APP_ENV === 'production'
+  },
+  experimental: {
+    // serverActions: true,
   }
 }
 

@@ -8,6 +8,8 @@ import { MdClose, MdMenu } from 'react-icons/md'
 import { BiMenuAltLeft } from 'react-icons/bi'
 import { Locale, i18n } from '@/i18n-config'
 import { getDictionary } from '@/get-dictionary'
+import Navbar from '@/components/navbar'
+import { cookies } from '@/helpers/server/cookies'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,54 +31,11 @@ export default async function RootLayout({
   children: React.ReactNode,
   params: {lang: Locale}
 }) {
-  const dictionary = await getDictionary(params.lang)
+  const lang = await cookies().locale() || params.lang
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <body className={inter.className}>
-        <nav className='bg-orange-600 flex items-center px-2 justify-between'>
-          <div className="drawer w-min">
-            <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
-              {/* Page content here */}
-              <label htmlFor="my-drawer" className="btn btn-ghost drawer-button btn-square">
-                <BiMenuAltLeft size={32} color='white'/>
-              </label>
-            </div>
-            <div className="drawer-side">
-              <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-              <ul className="menu p-4 w-full sm:w-80 min-h-full bg-base-200 text-base-content">
-                  <label className='self-end btn' htmlFor='my-drawer'>
-                    <MdClose size={24} />
-                  </label>
-                {/* Sidebar content here */}
-                <li>
-                  <Link href={'/'}>
-                    {dictionary.home}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={'/'}>
-                    {dictionary.projects}
-                  </Link>
-                </li>
-                <li className='flex-row'>
-                  <label htmlFor="language" className='inline'>{dictionary.language}: </label>
-                  <select name="language" id="language" defaultValue={params.lang} className='capitalize flex-grow'>
-                    {
-                      i18n.locales.map((locale, idx) => (
-                        <option value={locale} key={idx}>{i18n.longLocales[idx]}</option>
-                      ))
-                    }
-                  </select>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <Link href="/">
-            <h1 className='text-white font-black'>{process.env.NEXT_PUBLIC_APP_NAME}</h1>
-          </Link>
-        </nav>
+        <Navbar lang={lang} />
         {children}
       </body>
     </html>
