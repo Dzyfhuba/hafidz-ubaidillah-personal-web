@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import Navbar from '@/components/navbar'
 import { cookies } from '@/helpers/server/cookies'
 import { Locale, i18n } from '@/i18n-config'
@@ -32,6 +33,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Navbar lang={lang} />
         {children}
+        <Analytics />
       </body>
     </html>
   )
