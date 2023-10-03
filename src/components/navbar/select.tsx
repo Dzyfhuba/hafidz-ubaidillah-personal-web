@@ -16,7 +16,6 @@ export const Select = (props: { lang: Locale; }) => {
   return (
     <select
       name="language"
-      id="language"
       // defaultValue={cookies().get('NEXT_LOCALE') || props.lang}
       defaultValue={props.lang}
       className='capitalize flex-grow'

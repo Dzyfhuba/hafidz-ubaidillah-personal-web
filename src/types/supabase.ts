@@ -12,7 +12,7 @@ export interface Database {
       profile: {
         Row: {
           address: string | null
-          afiliation: string | null
+          affiliation: string | null
           fullname: string | null
           id: number
           long_description: string | null
@@ -22,7 +22,7 @@ export interface Database {
         }
         Insert: {
           address?: string | null
-          afiliation?: string | null
+          affiliation?: string | null
           fullname?: string | null
           id?: number
           long_description?: string | null
@@ -32,7 +32,7 @@ export interface Database {
         }
         Update: {
           address?: string | null
-          afiliation?: string | null
+          affiliation?: string | null
           fullname?: string | null
           id?: number
           long_description?: string | null

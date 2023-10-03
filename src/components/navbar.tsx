@@ -42,8 +42,7 @@ const Navbar = async (props: Props) => {
               </Link>
             </li>
             <li className='flex-row'>
-              <label htmlFor="language" className='inline'>{dictionary.language}: </label>
-              <Select lang={props.lang} />
+              <label className='inline'>{dictionary.language}: <Select lang={props.lang} /></label>
             </li>
           </ul>
         </div>
@@ -61,8 +60,7 @@ const Navbar = async (props: Props) => {
           {dictionary.projects}
         </Link>
         <div className='flex sm-nav-lang'>
-          <label htmlFor="language" className='inline'><MdTranslate /></label>
-          <Select lang={props.lang} />
+          <label className='flex items-center'><MdTranslate /><Select lang={props.lang} /></label>
         </div>
       </div>
     </nav>
