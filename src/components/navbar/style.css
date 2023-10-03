@@ -1,3 +1,7 @@
 .sm-nav-lang select {
   @apply bg-transparent;
 }
+
+.sm-nav-lang select option {
+  @apply text-black;
+}
