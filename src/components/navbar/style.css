@@ -1,0 +1,3 @@
+.sm-nav-lang select {
+  @apply bg-transparent;
+}

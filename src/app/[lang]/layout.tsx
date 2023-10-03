@@ -1,22 +1,17 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Image from 'next/image'
-import Link from 'next/link'
-import LogoWhite from '@/images/logo-long-bg-white.png'
-import { MdClose, MdMenu } from 'react-icons/md'
-import { BiMenuAltLeft } from 'react-icons/bi'
-import { Locale, i18n } from '@/i18n-config'
-import { getDictionary } from '@/get-dictionary'
 import Navbar from '@/components/navbar'
 import { cookies } from '@/helpers/server/cookies'
+import { Locale, i18n } from '@/i18n-config'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Dzyfhuba Dev',
-  description: `Hafidz Ubaidillah is a highly skilled full-stack web developer, 
-  specializing in Laravel and Node.js for the back end, and React.js and Flutter for the front end.`,
+  title: process.env.NEXT_PUBLIC_APP_NAME || 'Hafidz Ubaidillah',
+  description: `Hello and welcome to my website profile! 
+  I'm Hafidz, an independent Software Engineer with a solid 2 years of professional experience. 
+  Feel free to explore my portfolio and learn more about my skills and projects.`,
 }
 
 export async function generateStaticParams() {

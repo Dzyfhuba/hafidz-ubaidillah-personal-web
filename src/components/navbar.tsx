@@ -2,8 +2,9 @@ import { getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
 import Link from 'next/link'
 import { BiMenuAltLeft } from 'react-icons/bi'
-import { MdClose } from 'react-icons/md'
+import { MdClose, MdTranslate } from 'react-icons/md'
 import { Select } from './navbar/select'
+import '@/components/navbar/style.css'
 
 type Props = {
   lang: Locale
@@ -12,12 +13,11 @@ type Props = {
 }
 
 const Navbar = async (props: Props) => {
-  console.log(props.lang)
   const dictionary = await getDictionary(props.lang)
 
   return (
-    <nav className='bg-orange-600 flex items-center px-2 justify-between'>
-      <div className="drawer w-min">
+    <nav className='bg-orange-600 flex items-center px-2 justify-between h-12'>
+      <div className="drawer w-min sm:hidden">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Page content here */}
@@ -31,7 +31,6 @@ const Navbar = async (props: Props) => {
             <label className='self-end btn' htmlFor='my-drawer'>
               <MdClose size={24} />
             </label>
-            {/* Sidebar content here */}
             <li>
               <Link href={'/'}>
                 {dictionary.home}
@@ -53,6 +52,19 @@ const Navbar = async (props: Props) => {
       <Link href="/">
         <h1 className='text-white font-black'>{process.env.NEXT_PUBLIC_APP_NAME}</h1>
       </Link>
+
+      <div className='hidden sm:flex text-white h-full sm:items-center'>
+        <Link href={'/'} className='px-5 h-full flex items-center'>
+          {dictionary.home}
+        </Link>
+        <Link href={'/'} className='px-5 h-full flex items-center'>
+          {dictionary.projects}
+        </Link>
+        <div className='flex sm-nav-lang'>
+          <label htmlFor="language" className='inline'><MdTranslate /></label>
+          <Select lang={props.lang} />
+        </div>
+      </div>
     </nav>
   )
 }
