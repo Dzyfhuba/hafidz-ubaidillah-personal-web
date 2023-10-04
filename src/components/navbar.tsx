@@ -28,9 +28,11 @@ const Navbar = async (props: Props) => {
         <div className="drawer-side">
           <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
           <ul className="menu p-4 w-full sm:w-80 min-h-full bg-base-200 text-base-content">
-            <label className='self-end btn' htmlFor='my-drawer'>
-              <MdClose size={24} />
-            </label>
+            <li>
+              <label className='self-end btn' htmlFor='my-drawer'>
+                <MdClose size={24} />
+              </label>
+            </li>
             <li>
               <Link href={'/'}>
                 {dictionary.home}
