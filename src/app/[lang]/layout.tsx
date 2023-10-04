@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import PageAnalytics from '@/components/analytics/pageAnalytics'
+import { isSupported } from 'firebase/analytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,16 +27,20 @@ export default async function RootLayout({
   params
 }: {
   children: React.ReactNode,
-  params: {lang: Locale}
+  params: { lang: Locale }
 }) {
   const lang = await cookies().locale() || params.lang
   return (
     <html lang={lang}>
       <body className={inter.className}>
         <Navbar lang={lang} />
+        {/* <PageAnalytics> */}
         {children}
+        {/* </PageAnalytics> */}
         <Analytics />
-        <PageAnalytics />
+        {
+          typeof window !== 'undefined' && <PageAnalytics />
+        }
       </body>
     </html>
   )

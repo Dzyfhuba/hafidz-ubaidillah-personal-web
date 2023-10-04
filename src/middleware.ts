@@ -6,6 +6,8 @@ import { Locale, i18n } from './i18n-config'
 import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 import { cookies } from 'next/headers'
+import { isSupported, logEvent } from 'firebase/analytics'
+import { analytics } from './helpers/firebase'
 
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers

@@ -12,7 +12,9 @@
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.4.2",
     "@supabase/supabase-js": "^2.37.0",
+    "@use-gesture/react": "^10.3.0",
     "@vercel/analytics": "^1.0.2",
+    "encoding": "^0.1.13",
     "firebase": "^10.4.0",
     "negotiator": "^0.6.3",
     "next": "latest",
