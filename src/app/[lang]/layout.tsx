@@ -5,6 +5,7 @@ import { Locale, i18n } from '@/i18n-config'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import PageAnalytics from '@/components/analytics/pageAnalytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,6 +35,7 @@ export default async function RootLayout({
         <Navbar lang={lang} />
         {children}
         <Analytics />
+        <PageAnalytics />
       </body>
     </html>
   )
