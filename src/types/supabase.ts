@@ -15,8 +15,10 @@ export interface Database {
           affiliation: string | null
           fullname: string | null
           id: number
-          long_description: string | null
-          short_description: string | null
+          long_description_en: string | null
+          long_description_id: string | null
+          short_description_en: string | null
+          short_description_id: string | null
           username: string | null
           work: string | null
         }
@@ -25,8 +27,10 @@ export interface Database {
           affiliation?: string | null
           fullname?: string | null
           id?: number
-          long_description?: string | null
-          short_description?: string | null
+          long_description_en?: string | null
+          long_description_id?: string | null
+          short_description_en?: string | null
+          short_description_id?: string | null
           username?: string | null
           work?: string | null
         }
@@ -35,10 +39,30 @@ export interface Database {
           affiliation?: string | null
           fullname?: string | null
           id?: number
-          long_description?: string | null
-          short_description?: string | null
+          long_description_en?: string | null
+          long_description_id?: string | null
+          short_description_en?: string | null
+          short_description_id?: string | null
           username?: string | null
           work?: string | null
+        }
+        Relationships: []
+      }
+      tags: {
+        Row: {
+          icon: string | null
+          id: number
+          text: string | null
+        }
+        Insert: {
+          icon?: string | null
+          id?: number
+          text?: string | null
+        }
+        Update: {
+          icon?: string | null
+          id?: number
+          text?: string | null
         }
         Relationships: []
       }

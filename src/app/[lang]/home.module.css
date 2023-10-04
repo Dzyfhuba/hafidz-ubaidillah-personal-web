@@ -1,26 +1,3 @@
-.profileImg {
-  @apply aspect-square object-cover h-40 w-40 rounded-full;
-}
-
 .main {
-  @apply mx-auto w-full min-h-[150vh] justify-between max-w-3xl p-4 dark:text-white;
-}
-
-.fullname {
-  @apply text-2xl sm:text-4xl font-bold;
-}
-
-.small-info {
-  @apply text-xs sm:text-base flex-wrap flex gap-1;
-}
-
-.small-info > span {
-  @apply whitespace-nowrap flex items-center
-}
-.small-info > span > span {
-  @apply font-bold;
-}
-
-.description {
-  @apply text-sm sm:text-base text-justify;
+  @apply mx-auto w-full min-h-[150vh] max-w-3xl p-4 dark:text-white flex flex-col gap-2;
 }

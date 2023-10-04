@@ -16,7 +16,7 @@ const Navbar = async (props: Props) => {
   const dictionary = await getDictionary(props.lang)
 
   return (
-    <nav className='bg-orange-600 flex items-center px-2 justify-between h-12'>
+    <nav className='bg-orange-600 flex items-center px-2 justify-between h-12 sticky top-0'>
       <div className="drawer w-min sm:hidden">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
