@@ -16,7 +16,7 @@ const Navbar = async (props: Props) => {
   const dictionary = await getDictionary(props.lang)
 
   return (
-    <nav className='bg-orange-600 flex items-center px-2 justify-between h-12 sticky top-0'>
+    <nav className='bg-base-100 shadow-xl flex items-center px-2 justify-between h-12 sticky top-0'>
       <div className="drawer w-min sm:hidden">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
@@ -51,10 +51,10 @@ const Navbar = async (props: Props) => {
       </div>
 
       <Link href="/">
-        <h1 className='text-white font-black'>{process.env.NEXT_PUBLIC_APP_NAME}</h1>
+        <h1 className='dark:text-white font-black'>{process.env.NEXT_PUBLIC_APP_NAME}</h1>
       </Link>
 
-      <div className='hidden sm:flex text-white h-full sm:items-center'>
+      <div className='hidden sm:flex dark:text-white h-full sm:items-center'>
         <Link href={'/'} className='px-5 h-full flex items-center'>
           {dictionary.home}
         </Link>

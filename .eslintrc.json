@@ -1,8 +1,20 @@
 {
   "extends": "next/core-web-vitals",
+  "ignorePatterns": [
+    "src/types/supabase.ts"
+  ],
   "rules": {
-    "object-curly-spacing": ["error", "always"],
-    "semi": ["error", "never"],
-    "quotes": ["error", "single"]
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ]
   }
 }
