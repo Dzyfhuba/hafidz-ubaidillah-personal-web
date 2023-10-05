@@ -1,5 +1,4 @@
 'use client'
-import { cookies } from '@/helpers/client/cookies'
 import { capitalize } from '@/helpers/str'
 import { Locale, i18n } from '@/i18n-config'
 

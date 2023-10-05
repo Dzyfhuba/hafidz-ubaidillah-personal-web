@@ -48,6 +48,27 @@ export interface Database {
         }
         Relationships: []
       }
+      social_medias: {
+        Row: {
+          icon_source: string | null
+          id: number
+          label: string | null
+          link: string | null
+        }
+        Insert: {
+          icon_source?: string | null
+          id?: number
+          label?: string | null
+          link?: string | null
+        }
+        Update: {
+          icon_source?: string | null
+          id?: number
+          label?: string | null
+          link?: string | null
+        }
+        Relationships: []
+      }
       tags: {
         Row: {
           icon: string | null

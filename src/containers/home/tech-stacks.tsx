@@ -2,7 +2,7 @@ import supabase from '@/helpers/supabase'
 import styles from './tech-stacks.module.css'
 
 const TechStacks = async () => {
-  const { data: categories, error } = await supabase.from('tech_stack_categories').select('*').order('order', { ascending: true })
+  const { data } = await supabase.from('tech_stack_categories').select('*').order('order', { ascending: true })
   
   return (
     <section>
@@ -10,7 +10,7 @@ const TechStacks = async () => {
 
       <div className={styles['category-grid']}>
         {
-          categories?.map((category) => (
+          data?.map((category) => (
             <div key={category.id} className={styles['category-container']}>
               <h4 className={styles['category-title']}>{category.text}</h4>
               <Item categoryId={category.id} />
@@ -23,9 +23,7 @@ const TechStacks = async () => {
 }
 
 const Item = async ({ categoryId: id }: {categoryId: number}) => {
-  const { data: items, error } = await supabase.from('tech_stacks').select('*').eq('category_id', id)
-
-  console.log(items)
+  const { data: items } = await supabase.from('tech_stacks').select('*').eq('category_id', id)
 
   return (
     <div className={styles.item}>

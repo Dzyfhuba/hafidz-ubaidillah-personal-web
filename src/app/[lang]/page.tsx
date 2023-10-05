@@ -1,20 +1,16 @@
 import Profile from '@/containers/home/profile'
+import SocialMedias from '@/containers/home/social_medias'
 import Tags from '@/containers/home/tags'
-import supabase from '@/helpers/supabase'
-import { Locale } from '@/i18n-config'
-import styles from './home.module.css'
 import TechStacks from '@/containers/home/tech-stacks'
+import styles from './home.module.css'
 
-export default async function Home({
-  params: { lang },
-}: {
-  params: { lang: Locale }
-}) {
+export default async function Home() {
 
   return (
     <main className={styles.main}>
       <Profile />
       <Tags />
+      <SocialMedias />
       <TechStacks />
     </main>
   )

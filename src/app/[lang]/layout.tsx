@@ -1,13 +1,12 @@
-import { Analytics } from '@vercel/analytics/react'
+import PageAnalytics from '@/components/analytics/pageAnalytics'
+import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import { cookies } from '@/helpers/server/cookies'
 import { Locale, i18n } from '@/i18n-config'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import PageAnalytics from '@/components/analytics/pageAnalytics'
-import { isSupported } from 'firebase/analytics'
-import Footer from '@/components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
