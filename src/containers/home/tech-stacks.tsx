@@ -1,5 +1,6 @@
 import supabase from '@/helpers/supabase'
 import styles from './tech-stacks.module.css'
+import Image from 'next/image'
 
 const TechStacks = async () => {
   const { data } = await supabase.from('tech_stack_categories').select('*').order('order', { ascending: true })
@@ -30,7 +31,12 @@ const Item = async ({ categoryId: id }: {categoryId: number}) => {
       {
         items?.map((item) => (
           <div key={item.id} className={styles['item-container']}>
-            <span dangerouslySetInnerHTML={{ __html: item.icon || '' }} />
+            {
+              item.icon_source && <Image src={item.icon_source} alt={item.text || ''} width={20} height={20} />
+            }
+            {
+              item.icon && <span dangerouslySetInnerHTML={{ __html: item.icon || '' }} />
+            }
             <span className={styles['item-text']}>{item.text}</span>
           </div>
         ))

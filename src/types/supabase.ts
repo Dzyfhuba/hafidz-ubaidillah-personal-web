@@ -109,18 +109,21 @@ export interface Database {
         Row: {
           category_id: number | null
           icon: string | null
+          icon_source: string | null
           id: number
           text: string | null
         }
         Insert: {
           category_id?: number | null
           icon?: string | null
+          icon_source?: string | null
           id?: number
           text?: string | null
         }
         Update: {
           category_id?: number | null
           icon?: string | null
+          icon_source?: string | null
           id?: number
           text?: string | null
         }
