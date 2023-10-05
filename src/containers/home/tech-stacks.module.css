@@ -1,0 +1,27 @@
+.title {
+  @apply text-xl font-bold;
+}
+
+.category-title {
+  @apply text-xs text-neutral-600 dark:text-neutral-400 font-semibold;
+}
+
+.category-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4;
+}
+
+.category-container {
+  @apply flex flex-col gap-2;
+}
+
+.item {
+  @apply flex flex-col gap-1;
+}
+
+.item-container {
+  @apply flex items-center gap-1;
+}
+
+.item-text {
+  @apply text-sm;
+}

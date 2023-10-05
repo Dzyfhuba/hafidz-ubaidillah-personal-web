@@ -66,6 +66,52 @@ export interface Database {
         }
         Relationships: []
       }
+      tech_stack_categories: {
+        Row: {
+          id: number
+          order: number | null
+          text: string | null
+        }
+        Insert: {
+          id?: number
+          order?: number | null
+          text?: string | null
+        }
+        Update: {
+          id?: number
+          order?: number | null
+          text?: string | null
+        }
+        Relationships: []
+      }
+      tech_stacks: {
+        Row: {
+          category_id: number | null
+          icon: string | null
+          id: number
+          text: string | null
+        }
+        Insert: {
+          category_id?: number | null
+          icon?: string | null
+          id?: number
+          text?: string | null
+        }
+        Update: {
+          category_id?: number | null
+          icon?: string | null
+          id?: number
+          text?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tech_stacks_category_id_fkey"
+            columns: ["category_id"]
+            referencedRelation: "tech_stack_categories"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never
