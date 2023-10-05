@@ -7,6 +7,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import PageAnalytics from '@/components/analytics/pageAnalytics'
 import { isSupported } from 'firebase/analytics'
+import Footer from '@/components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -41,6 +42,7 @@ export default async function RootLayout({
         {
           typeof window !== 'undefined' && <PageAnalytics />
         }
+        <Footer />
       </body>
     </html>
   )
