@@ -48,6 +48,21 @@ export interface Database {
         }
         Relationships: []
       }
+      setting: {
+        Row: {
+          id: number
+          updated_at: string | null
+        }
+        Insert: {
+          id?: number
+          updated_at?: string | null
+        }
+        Update: {
+          id?: number
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       social_medias: {
         Row: {
           icon_source: string | null

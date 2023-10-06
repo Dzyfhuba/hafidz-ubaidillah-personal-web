@@ -7,7 +7,7 @@ import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 import { cookies } from 'next/headers'
 
-function getLocale(request: NextRequest): string | undefined {
+export function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
   const negotiatorHeaders: Record<string, string> = {}
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
@@ -72,6 +72,8 @@ export function middleware(request: NextRequest) {
     //     request.url
     //   )
     // )
+
+    // cookies().set('NEXT_LOCALE', locale as string)
 
     // rewrite to /i18n
     return NextResponse.rewrite(

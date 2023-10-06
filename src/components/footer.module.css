@@ -1,3 +1,7 @@
 .footer {
-  @apply mx-auto w-full max-w-3xl border-t border-black dark:border-white text-center p-5 text-xs;
+  @apply mx-auto w-full max-w-3xl border-t border-black dark:border-white text-center p-5 text-xs flex justify-between;
+}
+
+.link {
+    @apply hover:underline
 }

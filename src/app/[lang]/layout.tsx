@@ -7,6 +7,8 @@ import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import 'moment/locale/id'
+import moment from 'moment'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +32,7 @@ export default async function RootLayout({
   params: { lang: Locale }
 }) {
   const lang = await cookies().locale() || params.lang
+  moment.locale(lang)
   return (
     <html lang={lang}>
       <body className={inter.className}>
@@ -41,7 +44,7 @@ export default async function RootLayout({
         {
           typeof window !== 'undefined' && <PageAnalytics />
         }
-        <Footer />
+        <Footer lang={lang} />
       </body>
     </html>
   )

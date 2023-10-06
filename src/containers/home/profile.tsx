@@ -4,14 +4,18 @@ import ImageProfile from '@/images/profile.jpg'
 import Image from 'next/image'
 import { MdOutlineLocationOn } from 'react-icons/md'
 import styles from './profile.module.css'
+import { Locale } from '@/i18n-config'
 
-const Profile = async () => {
+type Props = {
+  lang: Locale
+}
+
+const Profile = async (props: Props) => {
   let { data: profile } = await supabase
     .from('profile')
     .select('*')
     .single()
 
-  const locale = await cookies().locale()
   return (
     <section>
       <Image
@@ -37,11 +41,13 @@ const Profile = async () => {
       </div>
       <p className={styles.description}>
         {
-          locale === 'id' ? profile?.short_description_id : profile?.short_description_en
+          props.lang === 'id' ? profile?.short_description_id : profile?.short_description_en
         }
       </p>
     </section>
   )
 }
+
+
 
 export default Profile
