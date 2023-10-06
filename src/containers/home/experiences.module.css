@@ -1,0 +1,27 @@
+.h3 {
+  @apply text-xl font-bold;
+}
+
+.container {
+  @apply flex flex-col gap-2
+}
+
+.item {
+  @apply grid grid-rows-3 grid-flow-col-dense w-fit items-center
+}
+
+.item > *:first-child {
+  @apply row-span-3 shrink-0 text-sm mr-3
+}
+
+.item > h4 {
+  @apply text-sm font-bold
+}
+.item > p {
+  @apply text-xs
+}
+
+.item > span {
+  @apply text-base-300
+}
+

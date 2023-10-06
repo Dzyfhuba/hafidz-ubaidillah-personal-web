@@ -51,6 +51,7 @@ export interface Database {
       experiences: {
         Row: {
           affiliate: string | null
+          affiliate_logo: string | null
           date_end: string | null
           date_start: string | null
           id: number
@@ -58,6 +59,7 @@ export interface Database {
         }
         Insert: {
           affiliate?: string | null
+          affiliate_logo?: string | null
           date_end?: string | null
           date_start?: string | null
           id?: number
@@ -65,6 +67,7 @@ export interface Database {
         }
         Update: {
           affiliate?: string | null
+          affiliate_logo?: string | null
           date_end?: string | null
           date_start?: string | null
           id?: number

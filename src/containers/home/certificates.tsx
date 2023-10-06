@@ -20,7 +20,7 @@ const Certificates = async (props: Props) => {
       <div className={styles.container}>
         {
           data?.map(item => (
-            <a key={item.id} rel='noreferrer' href={item.link || '/'} className={styles.item}>
+            <a key={item.id} rel='noreferrer' href={item.link || '/'} className={styles.item} target='_blank'>
               <Image src={item.icon || ''} alt={item.label || ''} width={12} height={12} />
               {item.label}
             </a>

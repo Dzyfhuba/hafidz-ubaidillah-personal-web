@@ -3,5 +3,10 @@
   "projects": "Projek",
   "language": "Bahasa",
   "copyright": "Hak Cipta",
-  "certificates": "Sertifikat"
+  "certificates": "Sertifikat",
+  "experiences": "Pengalaman",
+  "years": "Tahun",
+  "months": "Bulan",
+  "year": "Tahun",
+  "month": "Bulan"
 }

@@ -3,5 +3,10 @@
   "projects": "Projects",
   "language": "Language",
   "copyright": "Copyright",
-  "certificates": "Certificates"
+  "certificates": "Certificates",
+  "experiences": "Experiences",
+  "years": "Years",
+  "months": "Months",
+  "year": "Year",
+  "month": "Month"
 }
