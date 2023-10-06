@@ -9,6 +9,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import 'moment/locale/id'
 import moment from 'moment'
+import Badge from '@/components/badge'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -45,6 +46,9 @@ export default async function RootLayout({
           typeof window !== 'undefined' && <PageAnalytics />
         }
         <Footer lang={lang} />
+        {
+          process.env.NEXT_PUBLIC_BADGE && <Badge />
+        }
       </body>
     </html>
   )
