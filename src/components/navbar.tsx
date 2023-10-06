@@ -39,7 +39,7 @@ const Navbar = async (props: Props) => {
               </Link>
             </li>
             <li>
-              <Link href={'/'}>
+              <Link href={'/projects'}>
                 {dictionary.projects}
               </Link>
             </li>
@@ -58,7 +58,7 @@ const Navbar = async (props: Props) => {
           <Link href={'/'} className='px-5 h-full flex items-center'>
             {dictionary.home}
           </Link>
-          <Link href={'/'} className='px-5 h-full flex items-center'>
+          <Link href={'/projects'} className='px-5 h-full flex items-center'>
             {dictionary.projects}
           </Link>
           <div className='flex sm-nav-lang'>
