@@ -4,6 +4,7 @@ import Tags from '@/containers/home/tags'
 import TechStacks from '@/containers/home/tech-stacks'
 import styles from './home.module.css'
 import { Locale, i18n } from '@/i18n-config'
+import Certificates from '@/containers/home/certificates'
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
@@ -21,6 +22,7 @@ export default async function Home({ params }: Props) {
       <Tags />
       <SocialMedias />
       <TechStacks />
+      <Certificates lang={params.lang} />
     </main>
   )
 }

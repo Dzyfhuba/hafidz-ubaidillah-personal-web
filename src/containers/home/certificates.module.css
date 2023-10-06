@@ -1,0 +1,11 @@
+.h3 {
+  @apply text-xl font-bold
+}
+
+.container {
+  @apply flex flex-wrap gap-2
+}
+
+.item {
+  @apply border-2 border-black dark:border-white  rounded-xl py-1 px-3 whitespace-nowrap btn btn-xs btn-outline
+}
