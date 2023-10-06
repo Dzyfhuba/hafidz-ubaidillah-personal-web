@@ -15,9 +15,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || 'Hafidz Ubaidillah',
-  description: `Hello and welcome to my website profile! 
-  I'm Hafidz, an independent Software Engineer with a solid 2 years of professional experience. 
-  Feel free to explore my portfolio and learn more about my skills and projects.`,
+  description: 'Experienced Full-stack Web Developer with a strong proficiency in Laravel and React, bringing two years of professional expertise in creating robust and user-friendly web applications.',
 }
 
 export async function generateStaticParams() {
