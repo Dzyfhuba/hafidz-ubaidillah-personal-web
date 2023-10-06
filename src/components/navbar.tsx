@@ -22,7 +22,7 @@ const Navbar = async (props: Props) => {
         <div className="drawer-content">
           {/* Page content here */}
           <label htmlFor="my-drawer" className="btn btn-ghost drawer-button btn-square">
-            <BiMenuAltLeft size={32} color='white' />
+            <BiMenuAltLeft size={32} />
           </label>
         </div>
         <div className="drawer-side">
@@ -50,19 +50,20 @@ const Navbar = async (props: Props) => {
         </div>
       </div>
 
-      <Link href="/">
-        <h1 className='dark:text-white font-black'>{process.env.NEXT_PUBLIC_APP_NAME}</h1>
-      </Link>
-
-      <div className='hidden sm:flex dark:text-white h-full sm:items-center'>
-        <Link href={'/'} className='px-5 h-full flex items-center'>
-          {dictionary.home}
+      <div className='sm:max-w-3xl flex mx-auto w-full justify-end sm:justify-between px-4 sm:px-2'>
+        <Link href="/">
+          <h1 className='dark:text-white font-black text-xl'>{process.env.NEXT_PUBLIC_APP_NAME}</h1>
         </Link>
-        <Link href={'/'} className='px-5 h-full flex items-center'>
-          {dictionary.projects}
-        </Link>
-        <div className='flex sm-nav-lang'>
-          <label className='flex items-center'><MdTranslate /><Select lang={props.lang} /></label>
+        <div className='hidden sm:flex dark:text-white h-full sm:items-center'>
+          <Link href={'/'} className='px-5 h-full flex items-center'>
+            {dictionary.home}
+          </Link>
+          <Link href={'/'} className='px-5 h-full flex items-center'>
+            {dictionary.projects}
+          </Link>
+          <div className='flex sm-nav-lang'>
+            <label className='flex items-center'><MdTranslate /><Select lang={props.lang} /></label>
+          </div>
         </div>
       </div>
     </nav>

@@ -1,10 +1,9 @@
-import { cookies } from '@/helpers/server/cookies'
 import supabase from '@/helpers/supabase'
+import { Locale } from '@/i18n-config'
 import ImageProfile from '@/images/profile.jpg'
 import Image from 'next/image'
 import { MdOutlineLocationOn } from 'react-icons/md'
 import styles from './profile.module.css'
-import { Locale } from '@/i18n-config'
 
 type Props = {
   lang: Locale
