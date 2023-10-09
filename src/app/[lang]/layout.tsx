@@ -10,6 +10,9 @@ import './globals.css'
 import 'moment/locale/id'
 import moment from 'moment'
 import Badge from '@/components/badge'
+import { Suspense } from 'react'
+import Loading from './loading'
+import styles from './home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -37,7 +40,9 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Navbar lang={lang} />
         {/* <PageAnalytics> */}
+        <main className={styles.main}>
         {children}
+        </main>
         {/* </PageAnalytics> */}
         <Analytics />
         {

@@ -77,16 +77,19 @@ export interface Database {
       }
       platforms: {
         Row: {
+          icon: string | null
           id: number
           is_active: boolean | null
           platform: string | null
         }
         Insert: {
+          icon?: string | null
           id?: number
           is_active?: boolean | null
           platform?: string | null
         }
         Update: {
+          icon?: string | null
           id?: number
           is_active?: boolean | null
           platform?: string | null
