@@ -19,7 +19,7 @@
 }
 
 .item-container {
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-1 btn btn-link btn-xs w-fit normal-case no-underline text-base;
 }
 
 .item-text {

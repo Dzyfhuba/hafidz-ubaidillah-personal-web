@@ -45,18 +45,13 @@ export async function GET(request: NextRequest) {
 
     const dataResponse = techStack ?
       data?.filter(pre =>
-        JSON.stringify(pre.tech_stack)
+        JSON.stringify(pre.project_tech_stacks)
           .toLocaleLowerCase()
-          .includes(`"tech":"${techStack.toLocaleLowerCase()}"` || ''))
+          .includes(`${techStack.toLocaleLowerCase()}` || ''))
       : data
 
     return Response.json(dataResponse, { status: 200 })
-
-    // const dataResponse = techStack ? data?.filter(pre => pre.tech_stack?.toString().includes(techStack || '')) : data
-
-    return Response.json(JSON.stringify(data![0].tech_stack).toLocaleLowerCase().includes(techStack || ''), { status: 200 })
-    return Response.json(JSON.stringify(data![0].tech_stack), { status: 200 })
   } catch (error) {
-
+    return Response.json(error, { status: 500 })
   }
 }

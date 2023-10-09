@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styles from './project-list.module.css'
-import { ReadonlyURLSearchParams } from 'next/navigation'
+import { ReadonlyURLSearchParams, usePathname, useRouter } from 'next/navigation'
 
 type Props = {
   params: ReadonlyURLSearchParams
@@ -9,15 +9,18 @@ type Props = {
 
 const ProjectList = (props: Props) => {
   const [data, setData] = useState<typeData>([])
+  const router = useRouter()
+  const pathname = usePathname()
+
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData(props.params.get('tech') || '')
+  }, [props.params])
 
-  const getData = async () => {
+  const getData = async (tech: string) => {
     const data = await axios.get('/api/projects', {
       params: {
-        tech: 'react'
+        tech: tech
       }
     }).then((response) => {
       return response.data as typeData
@@ -48,7 +51,14 @@ const ProjectList = (props: Props) => {
             <div className={styles['tech-stack-container']}>
               {
                 project.project_tech_stacks.map((tech_stack) => (
-                  <span key={tech_stack.tech_stacks?.id} className={styles['tech-stack']}>
+                  // <span key={tech_stack.tech_stacks?.id} className={styles['tech-stack'] + (props.params.get('tech') == tech_stack.tech_stacks?.text ? ' btn-neutral':' btn-outline')} onClick={() => {
+                  <span key={tech_stack.tech_stacks?.id} className={props.params.get('tech') == tech_stack.tech_stacks?.text ? styles['tech-stack-active']:styles['tech-stack']} onClick={() => {
+                    if (props.params.get('tech') == tech_stack.tech_stacks?.text) {
+                      router.replace('/projects')
+                    } else {
+                      router.replace(`/projects?tech=${tech_stack.tech_stacks?.text || ''}`, {})
+                    }
+                  }}>
                     <span dangerouslySetInnerHTML={{ __html: tech_stack.tech_stacks?.icon || '' }} />
                     <span data-project={`tech-${project.id}`}>{tech_stack.tech_stacks?.text}</span>
                   </span>
