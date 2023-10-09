@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styles from './project-list.module.css'
 import { ReadonlyURLSearchParams, usePathname, useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 type Props = {
   params: ReadonlyURLSearchParams
@@ -31,6 +32,15 @@ const ProjectList = (props: Props) => {
     setData(data)
   }
 
+  if (!data.length) {
+    return (
+      <>
+      <p>The project was not found or has not been added by the owner.</p>
+      <Link className={styles.link} href={'/projects'}>Visit without filter</Link>
+      </>
+    )
+  }
+
   return (
     <>
       {
@@ -52,7 +62,7 @@ const ProjectList = (props: Props) => {
               {
                 project.project_tech_stacks.map((tech_stack) => (
                   // <span key={tech_stack.tech_stacks?.id} className={styles['tech-stack'] + (props.params.get('tech') == tech_stack.tech_stacks?.text ? ' btn-neutral':' btn-outline')} onClick={() => {
-                  <span key={tech_stack.tech_stacks?.id} className={props.params.get('tech') == tech_stack.tech_stacks?.text ? styles['tech-stack-active']:styles['tech-stack']} onClick={() => {
+                  <span key={tech_stack.tech_stacks?.id} className={props.params.get('tech') == tech_stack.tech_stacks?.text ? styles['tech-stack-active'] : styles['tech-stack']} onClick={() => {
                     if (props.params.get('tech') == tech_stack.tech_stacks?.text) {
                       router.replace('/projects')
                     } else {

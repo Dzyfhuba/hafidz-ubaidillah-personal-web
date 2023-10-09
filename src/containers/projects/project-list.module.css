@@ -18,3 +18,8 @@
   @apply text-base font-bold;
 }
 
+
+
+.link {
+  @apply btn btn-warning
+}
