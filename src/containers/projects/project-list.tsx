@@ -10,6 +10,7 @@ type Props = {
 
 const ProjectList = (props: Props) => {
   const [data, setData] = useState<typeData>([])
+  const [isLoading, setLoading] = useState(true)
   const router = useRouter()
 
 
@@ -29,21 +30,33 @@ const ProjectList = (props: Props) => {
       return [] as typeData
     })
     setData(data)
+    setLoading(false)
   }
 
-  if (!data.length) {
+  // if (!data.length) {
+  //   return (
+  //     <>
+  //       <p>The project was not found or has not been added by the owner.</p>
+  //       <Link className={styles.link} href={'/projects'}>Visit without filter</Link>
+  //     </>
+  //   )
+  // }
+
+  if (isLoading){
     return (
-      <>
-      <p>The project was not found or has not been added by the owner.</p>
-      <Link className={styles.link} href={'/projects'}>Visit without filter</Link>
-      </>
+      <>Loading...</>
     )
   }
 
   return (
     <>
       {
-        data?.map((project) => (
+        (!data.length) ? (
+          <>
+            <p>The project was not found or has not been added by the owner.</p>
+            <Link className={styles.link} href={'/projects'}>Visit without filter</Link>
+          </>
+        ) : data?.map((project) => (
           <article key={project.id} className='project' data-project={`project-${project.id}`}>
             <h3 className={styles.h3}>
               {project.name}
