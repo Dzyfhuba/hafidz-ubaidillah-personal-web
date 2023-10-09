@@ -1,10 +1,8 @@
 'use client'
-import axios from 'axios'
-import { Suspense, useEffect, useState } from 'react'
-import styles from './page.module.css'
-import Loading from './loading'
 import ProjectList from '@/containers/projects/project-list'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
+import Loading from './loading'
 
 
 const Projects = () => {

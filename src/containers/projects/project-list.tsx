@@ -1,8 +1,8 @@
 import axios from 'axios'
+import Link from 'next/link'
+import { ReadonlyURLSearchParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import styles from './project-list.module.css'
-import { ReadonlyURLSearchParams, usePathname, useRouter } from 'next/navigation'
-import Link from 'next/link'
 
 type Props = {
   params: ReadonlyURLSearchParams
@@ -11,7 +11,6 @@ type Props = {
 const ProjectList = (props: Props) => {
   const [data, setData] = useState<typeData>([])
   const router = useRouter()
-  const pathname = usePathname()
 
 
   useEffect(() => {
