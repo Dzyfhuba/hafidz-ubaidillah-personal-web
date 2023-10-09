@@ -1,6 +1,7 @@
 import supabase from '@/helpers/supabase'
 import styles from './tech-stacks.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const TechStacks = async () => {
   const { data } = await supabase.from('tech_stack_categories').select('*').order('order', { ascending: true })
@@ -30,7 +31,7 @@ const Item = async ({ categoryId: id }: {categoryId: number}) => {
     <div className={styles.item}>
       {
         items?.map((item) => (
-          <div key={item.id} className={styles['item-container']}>
+          <Link key={item.id} className={styles['item-container']} href={`/projects?tech=${item.text}`}>
             {
               item.icon_source && <Image src={item.icon_source} alt={item.text || ''} width={20} height={20} />
             }
@@ -38,7 +39,7 @@ const Item = async ({ categoryId: id }: {categoryId: number}) => {
               item.icon && <span dangerouslySetInnerHTML={{ __html: item.icon || '' }} />
             }
             <span className={styles['item-text']}>{item.text}</span>
-          </div>
+          </Link>
         ))
       }
     </div>

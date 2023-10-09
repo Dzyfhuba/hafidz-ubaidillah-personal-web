@@ -6,6 +6,8 @@ import styles from './home.module.css'
 import { Locale, i18n } from '@/i18n-config'
 import Certificates from '@/containers/home/certificates'
 import Experiences from '@/containers/home/experiences'
+import { Suspense } from 'react'
+import Loading from './loading'
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
@@ -19,15 +21,17 @@ export default async function Home({ params }: Props) {
 
   return (
     <main className={styles.main}>
-      <Profile lang={params.lang} />
-      <Tags />
-      <SocialMedias />
-      <div className="divider"></div>
-      <TechStacks />
-      <div className="divider"></div>
-      <Experiences lang={params.lang} />
-      <div className="divider"></div>
-      <Certificates lang={params.lang} />
+      <Suspense fallback={<Loading />}>
+        <Profile lang={params.lang} />
+        <Tags />
+        <SocialMedias />
+        <div className="divider"></div>
+        <TechStacks />
+        <div className="divider"></div>
+        <Experiences lang={params.lang} />
+        <div className="divider"></div>
+        <Certificates lang={params.lang} />
+      </Suspense>
     </main>
   )
 }

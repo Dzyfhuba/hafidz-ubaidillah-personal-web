@@ -1,15 +1,16 @@
 import PageAnalytics from '@/components/analytics/pageAnalytics'
+import Badge from '@/components/badge'
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import { cookies } from '@/helpers/server/cookies'
 import { Locale, i18n } from '@/i18n-config'
 import { Analytics } from '@vercel/analytics/react'
+import moment from 'moment'
+import 'moment/locale/id'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import 'moment/locale/id'
-import moment from 'moment'
-import Badge from '@/components/badge'
+import styles from './home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -37,7 +38,9 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Navbar lang={lang} />
         {/* <PageAnalytics> */}
+        <main className={styles.main}>
         {children}
+        </main>
         {/* </PageAnalytics> */}
         <Analytics />
         {

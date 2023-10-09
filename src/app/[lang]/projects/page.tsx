@@ -1,10 +1,21 @@
-import styles from './page.module.css'
+'use client'
+import ProjectList from '@/containers/projects/project-list'
+import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
+import Loading from './loading'
 
-const Projects = async () => {
+
+const Projects = () => {
+  const params = useSearchParams()
+
   return (
-    <main className={styles.main}>
-      In progress...
-    </main>
+    <>
+      <Suspense fallback={<Loading />}>
+        <ProjectList params={params} />
+      </Suspense>
+      {/* <ProjectsFilter /> */}
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+    </>
   )
 }
 

@@ -75,6 +75,27 @@ export interface Database {
         }
         Relationships: []
       }
+      platforms: {
+        Row: {
+          icon: string | null
+          id: number
+          is_active: boolean | null
+          platform: string | null
+        }
+        Insert: {
+          icon?: string | null
+          id?: number
+          is_active?: boolean | null
+          platform?: string | null
+        }
+        Update: {
+          icon?: string | null
+          id?: number
+          is_active?: boolean | null
+          platform?: string | null
+        }
+        Relationships: []
+      }
       profile: {
         Row: {
           address: string | null
@@ -111,6 +132,98 @@ export interface Database {
           short_description_id?: string | null
           username?: string | null
           work?: string | null
+        }
+        Relationships: []
+      }
+      project_platforms: {
+        Row: {
+          id: number
+          link: string | null
+          platform_id: number | null
+          project_id: number | null
+        }
+        Insert: {
+          id?: number
+          link?: string | null
+          platform_id?: number | null
+          project_id?: number | null
+        }
+        Update: {
+          id?: number
+          link?: string | null
+          platform_id?: number | null
+          project_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_platforms_platform_id_fkey"
+            columns: ["platform_id"]
+            referencedRelation: "platforms"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "project_platforms_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      project_tech_stacks: {
+        Row: {
+          id: number
+          project_id: number | null
+          tech_stack_id: number | null
+        }
+        Insert: {
+          id?: number
+          project_id?: number | null
+          tech_stack_id?: number | null
+        }
+        Update: {
+          id?: number
+          project_id?: number | null
+          tech_stack_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_tech_stacks_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "project_tech_stacks_tech_stack_id_fkey"
+            columns: ["tech_stack_id"]
+            referencedRelation: "tech_stacks"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      projects: {
+        Row: {
+          id: number
+          name: string | null
+          order: number | null
+          platforms: Json | null
+          status: string | null
+          tech_stack: Json | null
+        }
+        Insert: {
+          id?: number
+          name?: string | null
+          order?: number | null
+          platforms?: Json | null
+          status?: string | null
+          tech_stack?: Json | null
+        }
+        Update: {
+          id?: number
+          name?: string | null
+          order?: number | null
+          platforms?: Json | null
+          status?: string | null
+          tech_stack?: Json | null
         }
         Relationships: []
       }
