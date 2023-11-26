@@ -8,6 +8,22 @@
   "description": "Hafidz Ubaidillah's Personal Website",
   "scope": "/",
   "start_url": "/",
+  "screenshots": [
+    {
+      "src": "images/mobile.jpg",
+      "sizes": "1080x2400",
+      "type": "image/jpg",
+      "form_factor": "narrow",
+      "label": "Hafidz Ubaidillah's Personal Website"
+    },
+    {
+      "src": "images/wide.png",
+      "sizes": "1366x743",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Hafidz Ubaidillah's Personal Website"
+    }
+  ],
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
