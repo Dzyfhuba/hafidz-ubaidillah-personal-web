@@ -75,8 +75,13 @@ export function middleware(request: NextRequest) {
 
     // cookies().set('NEXT_LOCALE', locale as string)
 
+    // if manifest.json, sw.js, images, workbox, etc, don't redirect
+    if (pathname.startsWith('/manifest.json') || pathname.startsWith('/api') || pathname.startsWith('/static') || pathname.startsWith('/workbox') || pathname.startsWith('/images')) {
+      return
+    }
+
     // rewrite to /i18n
-    return NextResponse.rewrite(
+    return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
         request.url
