@@ -5,6 +5,7 @@
   "background_color": "#E5E7EB",
   "display": "standalone",
   "orientation": "portrait",
+  "description": "Hafidz Ubaidillah's Personal Website",
   "scope": "/",
   "start_url": "/",
   "icons": [
