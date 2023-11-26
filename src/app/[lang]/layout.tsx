@@ -11,6 +11,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import styles from './home.module.css'
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,10 +37,15 @@ export default async function RootLayout({
   return (
     <html lang={lang}>
       <body className={inter.className}>
+        <Head>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/icon.png"></link>
+          <meta name="theme-color" content="#fff" />
+        </Head>
         <Navbar lang={lang} />
         {/* <PageAnalytics> */}
         <main className={styles.main}>
-        {children}
+          {children}
         </main>
         {/* </PageAnalytics> */}
         <Analytics />
