@@ -51,7 +51,7 @@ const Navbar = async (props: Props) => {
       </div>
 
       <div className='sm:max-w-3xl flex mx-auto w-full justify-end sm:justify-between px-4 sm:px-2'>
-        <NavLink href="/" inputId='my-drawer' className='ml-auto sm:mr-auto sm:ml-4'>
+        <NavLink href="/" className='ml-auto sm:mr-auto sm:ml-4'>
           <h1 className='dark:text-white font-black text-xl'>{process.env.NEXT_PUBLIC_APP_NAME}</h1>
         </NavLink>
         <div className='hidden sm:flex dark:text-white h-full sm:items-center'>

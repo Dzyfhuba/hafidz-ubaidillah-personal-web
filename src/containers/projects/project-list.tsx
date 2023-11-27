@@ -33,15 +33,6 @@ const ProjectList = (props: Props) => {
     setLoading(false)
   }
 
-  // if (!data.length) {
-  //   return (
-  //     <>
-  //       <p>The project was not found or has not been added by the owner.</p>
-  //       <Link className={styles.link} href={'/projects'}>Visit without filter</Link>
-  //     </>
-  //   )
-  // }
-
   if (isLoading){
     return (
       <>Loading...</>

@@ -4,12 +4,12 @@ import { HTMLAttributes, ReactNode } from 'react'
 
 type Props = LinkProps & HTMLAttributes<HTMLElement> & {
   children: ReactNode
-  inputId: string
+  inputId?: string
 }
 
 const NavLink = ({ inputId, ...props }: Props) => {
   return (
-    <Link className='px-5 h-full flex items-center' {...props} onClick={() => document.getElementById(inputId)?.click()}>
+    <Link className='px-5 h-full flex items-center' {...props} onClick={() => document.getElementById(inputId || '')?.click()}>
       {props.children}
     </Link>
   )
