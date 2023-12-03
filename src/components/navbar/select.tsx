@@ -9,7 +9,7 @@ export const Select = (props: { lang: Locale; }) => {
 
     // store in cookie expires in a week
     document.cookie = `NEXT_LOCALE=${lang};max-age=${60 * 60 * 24 * 7};sameSite=strict`
-    document.location.replace('/')
+    document.location.replace(`/${lang}`)
   }
 
   return (
